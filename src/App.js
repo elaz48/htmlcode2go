@@ -17,6 +17,8 @@ export default class Index extends React.Component {
 		this.handleChangeSelectedTagsAfter = this.handleChangeSelectedTagsAfter.bind(this);
 		this.handleChangeTextIn = this.handleChangeTextIn.bind(this);
 		this.generateOutput = this.generateOutput.bind(this);
+		this.shortCutP = this.shortCutP.bind(this);
+		this.shortCutLI = this.shortCutLI.bind(this);
 
 	}
 
@@ -55,6 +57,18 @@ export default class Index extends React.Component {
 		}
 	}
 	
+	shortCutP () {
+		let tmpO = "<p>";
+		let tmpC = "</p>";
+		this.setState({selectedTagsBefore: tmpO, selectedTagsAfter: tmpC});
+	}
+	
+	shortCutLI () {
+		let tmpO = "<li>";
+		let tmpC = "</li>";
+		this.setState({selectedTagsBefore: tmpO, selectedTagsAfter: tmpC});
+	}
+	
 	componentDidMount() {
 
 	}
@@ -68,7 +82,7 @@ export default class Index extends React.Component {
 				<div className="App">
 					<p>Before:</p>
 					<input type="text" onChange={this.handleChangeSelectedTagsBefore} value={this.state.selectedTagsBefore} />
-					<p>&nbsp;</p>
+					<p><button onClick={this.shortCutP}>P</button> | <button onClick={this.shortCutLI}>LI</button></p>
 					<p>After:</p>
 					<input type="text" onChange={this.handleChangeSelectedTagsAfter} value={this.state.selectedTagsAfter} />
 					<p>&nbsp;</p>
